@@ -1,0 +1,6 @@
+venv/
+.github/
+ci_cd/
+*.env
+.gitignore
+*.csv 
