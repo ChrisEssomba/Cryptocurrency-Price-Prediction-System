@@ -12,8 +12,8 @@ app = Flask(__name__)
 
 load_dotenv()
 #load the api key
-#key = os.getenv('API_KEY')
-key =  "9841adaf-41fd-4102-8637-124871313e7a"
+key = os.getenv('API_KEY')
+
 
 # API Data Fetching Function
 def get_data():
@@ -57,7 +57,5 @@ def home():
 
 if __name__ == "__main__":
     #app.run(debug=True)
-    app.run(debug=True, port=5000)  # or 8000, if applicable
-
-
-
+     #app.run(host='0.0.0.0', port=5000, debug=True)
+     app.run(host='0.0.0.0', port=5000)
