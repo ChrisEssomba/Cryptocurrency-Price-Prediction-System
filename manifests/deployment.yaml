@@ -1,19 +1,27 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: my-app
+  name: crypto-app
 spec:
-  replicas: 1 # Number of instances (pods) to run
+  replicas: 1
   selector:
     matchLabels:
-      app: my-app
+      app: crypto-app
   template:
     metadata:
       labels:
-        app: my-app
+        app: crypto-app
     spec:
       containers:
-        - name: my-container
-          image: myacr.azurecr.io/chrisus_image # Your Docker image in Azure Container Registry
+        - name: crypto-app
+          image: containerfromscript.azurecr.io/new-crypto-image:latest
           ports:
-            - containerPort: 80
+            - containerPort: 5000
+          env:
+            - name: API_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: crypto-api-secret
+                  key: API_KEY
+      imagePullSecrets:
+        - name: acr-auth
