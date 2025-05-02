@@ -31,7 +31,8 @@ def get_data():
 
     session = Session()
     session.headers.update(headers)
-
+    df = pd.DataFrame()
+    
     try:
         response = session.get(url, params=parameters)
         data = json.loads(response.text)
