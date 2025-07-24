@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: crypto-app-service
+spec:
+  type: LoadBalancer #to make it accessible from the outside api,...
+  ports:
+    - port: 80
+      targetPort: 5000
+  selector:
+    app: crypto-app

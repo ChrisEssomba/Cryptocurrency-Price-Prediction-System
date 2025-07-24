@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: crypto-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: crypto-app
+  template:
+    metadata:
+      labels:
+        app: crypto-app
+    spec:
+      containers:
+        - name: crypto-app
+          image: containerfromscript.azurecr.io/new-crypto-image:latest
+          ports:
+            - containerPort: 5000
+          env:
+            - name: API_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: crypto-api-secret
+                  key: API_KEY
+      imagePullSecrets:
+        - name: acr-auth
