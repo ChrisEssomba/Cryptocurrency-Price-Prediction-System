@@ -31,17 +31,23 @@ In a highly volatile market like cryptocurrency, being able to forecast price mo
 ## 📁 Project Structure
 
 ```
-├── .github/workflows/        # CI/CD pipelines (GitHub Actions)
-├── azure-docker-tp/          # Azure deployment templates
-├── venv/                     # Python virtual environment
+├── .github/
+│   └── workflows/            # CI/CD pipelines (Azure deployment)
 │
-├── App.py                    # FastAPI application (main)
-├── config.py                 # Application configuration
-├── Dockerfile                # Containerization setup
-├── requirements.txt          # Python dependencies
-├── test_container.py         # Container tests
-└── README.md                 # Project documentation
+├── containerization/         # Docker/Kubernetes config files
+├── dash_scripts/             # Dashboard-related scripts
+├── manifests/                # Kubernetes manifests
+├── reports/                  # Analysis/output reports
+├── tests/                    # Test scripts
+├── web_application/          # Web app source code
+│
+├── .coverage                 # Test coverage data
+├── .dockerignore             # Docker ignore rules
+├── .gitignore                # Git ignore rules
+├── README.md                 # Project documentation
+└── requirements.txt          # Python dependencies
 ```
+
 
 ---
 
